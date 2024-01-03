@@ -91,7 +91,7 @@
 
         loader.load('Nami_face.gltf', (gltf) => {
           const model2 = gltf.scene;
-          model2.position.x = -3;
+          //model2.position.x = -3;
           scene.add(model2);
 
           mixer2 = new THREE.AnimationMixer(model2);
@@ -116,8 +116,8 @@
       function animate() {
         requestAnimationFrame(animate);
 
-        if (mixer1) mixer1.update(0.01);
-        if (mixer2) mixer2.update(0.01);
+        if (mixer1) mixer1.update(0.03);
+        if (mixer2) mixer2.update(0.03);
 
         controls.update();
 
