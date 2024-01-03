@@ -60,8 +60,8 @@
 
         const textureLoader = new THREE.TextureLoader();
         textureLoader.load(
-            //'gradation.jpg',
-            'thin.jpg',
+            'gradation.jpg',
+            //'thin.jpg',
             function (texture) {
                  scene.background = texture;
             },
@@ -105,7 +105,7 @@
         requestAnimationFrame(animate);
 
         mixers.forEach(mixer => {
-          mixer.update(0.01);
+          mixer.update(0.05);
         });
 
         controls.update();
