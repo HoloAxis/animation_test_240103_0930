@@ -60,8 +60,8 @@
 
         const textureLoader = new THREE.TextureLoader();
         textureLoader.load(
-            'gradation.jpg',
-            //'thin.jpg',
+            //'gradation.jpg',
+            'thin.jpg',
             function (texture) {
                  scene.background = texture;
             },
@@ -73,9 +73,10 @@
 
         const loader = new GLTFLoader();
 
-        function loadModel(modelFile, mixerArray) {
+        function loadModel(modelFile, mixerArray, scale) {
           loader.load(modelFile, (gltf) => {
             const model = gltf.scene;
+            model.scale.set(scale, scale, scale);
             scene.add(model);
 
             const mixer = new THREE.AnimationMixer(model);
@@ -88,7 +89,7 @@
 
         loadModel('Nami_head.gltf', mixers, 5);
         loadModel('Nami_face.gltf', mixers, 5);
-        loadModel('Nami_bikini.gltf', mixers,5);
+        loadModel('Nami_bikini.gltf', mixers, 5);
         loadModel('Nami_upbody.gltf', mixers, 5);
         loadModel('Nami_underbody.gltf', mixers, 5);
 
@@ -104,12 +105,18 @@
       function animate() {
         requestAnimationFrame(animate);
 
+        let maxDeltaTime = 0;
+
         mixers.forEach(mixer => {
-          mixer.update(0.05);
+          mixer.update(0.01);
+          maxDeltaTime = Math.max(maxDeltaTime, mixer.time);
+        });
+
+        mixers.forEach(mixer => {
+          mixer.setTime(maxDeltaTime);
         });
 
         controls.update();
-
         renderer.render(scene, camera);
       }
     </script>
