@@ -46,14 +46,6 @@
         document.body.appendChild(renderer.domElement);
 
         controls = new OrbitControls(camera, renderer.domElement);
-        //ontrols.enableDamping = true;
-        //controls.dampingFactor = 0.25;
-        //controls.screenSpacePanning = false;
-        //controls.maxPolarAngle = Math.PI / 2;
-
-
-        // カメラコントロールの作成
-        //const controls = new THREE.OrbitControls(camera, renderer.domElement);
 
         
         const ambientLight = new THREE.AmbientLight(0xffffff, 1);
@@ -65,8 +57,8 @@
 
         const textureLoader = new THREE.TextureLoader();
         textureLoader.load(
-            'gradation.jpg',
-            //'thin.jpg',
+            //'gradation.jpg',
+            'thin.jpg',
             function (texture) {
                  scene.background = texture;
             },
@@ -122,6 +114,11 @@
         });
 
         controls.update();
+
+        // 照明の位置をカメラに合わせる
+        directionalLight.position.copy(camera.position);
+
+        
         renderer.render(scene, camera);
       }
     </script>
