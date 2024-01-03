@@ -38,7 +38,7 @@
         scene = new THREE.Scene();
 
         camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.001, 100);
-        camera.position.z = 4;
+        camera.position.z = 8;
         camera.position.y = 1;
 
         renderer = new THREE.WebGLRenderer();
@@ -46,10 +46,10 @@
         document.body.appendChild(renderer.domElement);
 
         controls = new OrbitControls(camera, renderer.domElement);
-        controls.enableDamping = true;
+        //ontrols.enableDamping = true;
         //controls.dampingFactor = 0.25;
-        controls.screenSpacePanning = false;
-        controls.maxPolarAngle = Math.PI / 2;
+        //controls.screenSpacePanning = false;
+        //controls.maxPolarAngle = Math.PI / 2;
 
 
         // カメラコントロールの作成
@@ -65,8 +65,8 @@
 
         const textureLoader = new THREE.TextureLoader();
         textureLoader.load(
-            //'gradation.jpg',
-            'thin.jpg',
+            'gradation.jpg',
+            //'thin.jpg',
             function (texture) {
                  scene.background = texture;
             },
