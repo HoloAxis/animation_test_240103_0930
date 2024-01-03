@@ -147,12 +147,20 @@
       function animate() {
         requestAnimationFrame(animate);
 
-        
+/*
         if (mixer2) mixer2.update(0.01);
         if (mixer4) mixer4.update(0.01);
         if (mixer5) mixer5.update(0.01);
         if (mixer3) mixer3.update(0.01);
         if (mixer1) mixer1.update(0.01);
+*/
+
+        mixer1 && mixer1.update(0.01);
+        mixer2 && mixer2.update(0.01);    
+        mixer3 && mixer3.update(0.01);
+        mixer4 && mixer4.update(0.01);  
+        mixer5 && mixer5.update(0.01);
+     
         controls.update();
 
         renderer.render(scene, camera);
