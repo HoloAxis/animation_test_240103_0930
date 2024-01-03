@@ -38,8 +38,8 @@
         scene = new THREE.Scene();
 
         camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.001, 100);
-        camera.position.z = 10;
-        camera.position.y = 5;
+        camera.position.z = 5;
+        camera.position.y = 4;
 
         renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
@@ -116,7 +116,7 @@
         controls.update();
 
         // 照明の位置をカメラに合わせる
-        directionalLight.position.copy(camera.position);
+        //directionalLight.position.copy(camera.position);
 
         
         renderer.render(scene, camera);
