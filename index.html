@@ -52,13 +52,12 @@
         scene.add(ambientLight);
 
         const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
-        directionalLight.position.set(0, 1, 1);
+        // 常にカメラの位置と同じにする
         scene.add(directionalLight);
 
         const textureLoader = new THREE.TextureLoader();
         textureLoader.load(
             'gradation.jpg',
-            //'thin.jpg',
             function (texture) {
                  scene.background = texture;
             },
@@ -83,7 +82,7 @@
             mixerArray.push(mixer);
           });
         }
-//ここにモデルを追加★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
         loadModel('Nami_hear2.gltf', mixers, 5);
         loadModel('Nami_face2.gltf', mixers, 5);
         loadModel('Nami_bikini3.gltf', mixers, 5);
@@ -116,9 +115,10 @@
         controls.update();
 
         // 照明の位置をカメラに合わせる
-        //directionalLight.position.copy(camera.position);
+        scene.children.filter(obj => obj instanceof THREE.DirectionalLight).forEach(light => {
+          light.position.copy(camera.position);
+        });
 
-        
         renderer.render(scene, camera);
       }
     </script>
