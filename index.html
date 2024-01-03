@@ -57,8 +57,8 @@
 
         const textureLoader = new THREE.TextureLoader();
         textureLoader.load(
-            //'gradation.jpg',
-            'thin.jpg',
+            'gradation.jpg',
+            //'thin.jpg',
             function (texture) {
                  scene.background = texture;
             },
@@ -84,6 +84,8 @@
           });
         }
 
+
+//ここにオブジェクトをセット★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
         loadModel('Nami_hear2.gltf', mixers, 5);
         loadModel('Nami_face2.gltf', mixers, 5);
         loadModel('Nami_bikini3.gltf', mixers, 5);
