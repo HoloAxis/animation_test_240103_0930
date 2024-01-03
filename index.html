@@ -60,8 +60,8 @@
 
         const textureLoader = new THREE.TextureLoader();
         textureLoader.load(
-            'gradation.jpg',
-            //'thin.jpg',
+            //'gradation.jpg',
+            'thin.jpg',
             function (texture) {
                  scene.background = texture;
             },
@@ -86,12 +86,12 @@
             mixerArray.push(mixer);
           });
         }
-
-        loadModel('Nami_head.gltf', mixers, 5);
-        loadModel('Nami_face.gltf', mixers, 5);
-        loadModel('Nami_bikini.gltf', mixers, 5);
-        loadModel('Nami_upbody.gltf', mixers, 5);
-        loadModel('Nami_underbody.gltf', mixers, 5);
+//ここにモデルを追加★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+        loadModel('Nami_hear2.gltf', mixers, 5);
+        loadModel('Nami_face2.gltf', mixers, 5);
+        loadModel('Nami_bikini2.gltf', mixers, 5);
+        loadModel('Nami_upbody2.gltf', mixers, 5);
+        loadModel('Nami_underbody2.gltf', mixers, 5);
 
         window.addEventListener('resize', onWindowResize, false);
       }
