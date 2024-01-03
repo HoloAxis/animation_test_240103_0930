@@ -29,7 +29,7 @@
       import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 
       let scene, camera, renderer, controls;
-      let mixer1, mixer2;
+      let mixer1, mixer2, mixer3, mixer4, mixer5;
 
       init();
       animate();
@@ -62,8 +62,8 @@
         // テクスチャの読み込みと背景への設定
         const textureLoader = new THREE.TextureLoader();
         textureLoader.load(
-             'gradation.jpg',  // 背景画像のパス
-            //'thin.jpg',  // 背景画像のパス
+            //'gradation.jpg',  // 背景画像のパス
+            'thin.jpg',  // 背景画像のパス
         function (texture) {
                  scene.background = texture;
             },
@@ -99,6 +99,37 @@
           action2.play();
         });
 
+        loader.load('Nami_bikini.gltf', (gltf) => {
+          const model3 = gltf.scene;
+          //model2.position.x = -3;
+          scene.add(model3);
+
+          mixer3 = new THREE.AnimationMixer(model3);
+          const action3 = mixer3.clipAction(gltf.animations[0]);
+          action3.play();
+        });
+
+        loader.load('Nami_upbody.gltf', (gltf) => {
+          const model4 = gltf.scene;
+          //model2.position.x = -3;
+          scene.add(model4);
+
+          mixer4 = new THREE.AnimationMixer(model4);
+          const action4 = mixer4.clipAction(gltf.animations[0]);
+          action4.play();
+        });
+
+
+         loader.load('Nami_underbody.gltf', (gltf) => {
+          const model5 = gltf.scene;
+          //model2.position.x = -3;
+          scene.add(model5);
+
+          mixer5 = new THREE.AnimationMixer(model5);
+          const action5 = mixer5.clipAction(gltf.animations[0]);
+          action5.play();
+        });
+       
         window.addEventListener('resize', onWindowResize, false);
       }
 
